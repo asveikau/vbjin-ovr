@@ -57,7 +57,7 @@ void Describe(HWND hwndDlg)
 }
 
 //Replay movie dialog
-BOOL CALLBACK ReplayDialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
+INT_PTR CALLBACK ReplayDialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	OPENFILENAME ofn;
 	char szChoice[MAX_PATH]={0};
@@ -118,7 +118,7 @@ int controllers=1;
 std::string sramfname;
 
 //Record movie dialog
-static BOOL CALLBACK RecordDialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
+static INT_PTR CALLBACK RecordDialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	static struct CreateMovieParameters* p = NULL;
 	std::string author = "";
