@@ -29,7 +29,6 @@ typedef uint32_t uint32;
 #pragma warning( disable: 4996 ) //disable "The POSIX name for this item is deprecated"
 #define strcasecmp _stricmp
 #define strncasecmp _strnicmp
-#define snprintf _snprintf
 #define fstat _fstat
 #define close _close
 #define open _open
