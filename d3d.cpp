@@ -1,7 +1,5 @@
 #if USE_D3D
 
-#pragma comment( lib, "oculus/LibOVR/Lib/Windows/Win32/Release/VS2013/libovr.lib" )
-
 #include "aggdraw.h"
 #include "GPU_osd.h"
 #include "main.h"
