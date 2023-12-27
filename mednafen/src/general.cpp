@@ -101,10 +101,10 @@ std::string MDFN_MakeFName(MakeFName_Type type, int id1, const char *cd1)
 		       eff_dir = std::string(BaseDirectory) + std::string(PSS) + std::string("mcm");
 		     }
 
-                     trio_snprintf(tmp_path, 4096, "%s"PSS"%s.%d.mcm", eff_dir.c_str(), FileBase.c_str(), id1);
+                     trio_snprintf(tmp_path, 4096, "%s" PSS "%s.%d.mcm", eff_dir.c_str(), FileBase.c_str(), id1);
 
                      if(tmp_dfmd5 && stat(tmp_path, &tmpstat) == -1)
-                      trio_snprintf(tmp_path, 4096, "%s"PSS"%s.%s.%d.mcm",eff_dir.c_str(),FileBase.c_str(),md5_context::asciistr(MDFNGameInfo->MD5, 0).c_str(),id1);
+                      trio_snprintf(tmp_path, 4096, "%s" PSS "%s.%s.%d.mcm",eff_dir.c_str(),FileBase.c_str(),md5_context::asciistr(MDFNGameInfo->MD5, 0).c_str(),id1);
 
 		     break;
 
@@ -123,14 +123,14 @@ std::string MDFN_MakeFName(MakeFName_Type type, int id1, const char *cd1)
 		     sprintf(numtmp, "mc%d", id1);
 
 		     if(MDFNGameInfo->GameSetMD5Valid)
-                      trio_snprintf(tmp_path, 4096, "%s"PSS"%s.%s.%s", eff_dir.c_str(), MDFNGameInfo->shortname, md5_context::asciistr(MDFNGameInfo->GameSetMD5, 0).c_str(),cd1?cd1:numtmp);
+                      trio_snprintf(tmp_path, 4096, "%s" PSS "%s.%s.%s", eff_dir.c_str(), MDFNGameInfo->shortname, md5_context::asciistr(MDFNGameInfo->GameSetMD5, 0).c_str(),cd1?cd1:numtmp);
 		     else
 		     {
-                      trio_snprintf(tmp_path, 4096, "%s"PSS"%s.%s", eff_dir.c_str(), FileBase.c_str(), cd1?cd1:numtmp);
+                      trio_snprintf(tmp_path, 4096, "%s" PSS "%s.%s", eff_dir.c_str(), FileBase.c_str(), cd1?cd1:numtmp);
 
 					  //seriously WTF NEWTODO
 //		      if(tmp_dfmd5 && stat(tmp_path, &tmpstat) == -1)
-                       trio_snprintf(tmp_path, 4096, "%s"PSS"%s.%s.%s", eff_dir.c_str(), FileBase.c_str(), md5_context::asciistr(MDFNGameInfo->MD5, 0).c_str(),cd1?cd1:numtmp);
+                       trio_snprintf(tmp_path, 4096, "%s" PSS "%s.%s.%s", eff_dir.c_str(), FileBase.c_str(), md5_context::asciistr(MDFNGameInfo->MD5, 0).c_str(),cd1?cd1:numtmp);
 		     }
                      break;
 
@@ -147,9 +147,9 @@ std::string MDFN_MakeFName(MakeFName_Type type, int id1, const char *cd1)
                     }
 
                     if(MDFN_GetSettingB("snapname"))
-                     trio_snprintf(tmp_path, 4096, "%s"PSS"%s.txt", eff_dir.c_str(), FileBase.c_str());
+                     trio_snprintf(tmp_path, 4096, "%s" PSS "%s.txt", eff_dir.c_str(), FileBase.c_str());
                     else
-                     trio_snprintf(tmp_path, 4096, "%s"PSS"global.txt", eff_dir.c_str());
+                     trio_snprintf(tmp_path, 4096, "%s" PSS "global.txt", eff_dir.c_str());
 		    break;
 
   case MDFNMKF_SNAP:
@@ -165,9 +165,9 @@ std::string MDFN_MakeFName(MakeFName_Type type, int id1, const char *cd1)
                     }
 
 		    if(MDFN_GetSettingB("snapname"))
-                     trio_snprintf(tmp_path, 4096, "%s"PSS"%s-%d.%s", eff_dir.c_str(),FileBase.c_str(),id1,cd1);
+                     trio_snprintf(tmp_path, 4096, "%s" PSS "%s-%d.%s", eff_dir.c_str(),FileBase.c_str(),id1,cd1);
 		    else
-                     trio_snprintf(tmp_path, 4096, "%s"PSS"%d.%s", eff_dir.c_str(),id1,cd1);
+                     trio_snprintf(tmp_path, 4096, "%s" PSS "%d.%s", eff_dir.c_str(),id1,cd1);
 
                     break;
 
@@ -184,10 +184,10 @@ std::string MDFN_MakeFName(MakeFName_Type type, int id1, const char *cd1)
                    }
 
 		   if(MDFNGameInfo->GameSetMD5Valid)
-                    trio_snprintf(tmp_path, 4096, "%s"PSS"%s-%s.%s", eff_dir.c_str(), MDFNGameInfo->shortname, md5_context::asciistr(MDFNGameInfo->GameSetMD5, 0).c_str(),cd1);
+                    trio_snprintf(tmp_path, 4096, "%s" PSS "%s-%s.%s", eff_dir.c_str(), MDFNGameInfo->shortname, md5_context::asciistr(MDFNGameInfo->GameSetMD5, 0).c_str(),cd1);
 		   else
 		   {
-                    trio_snprintf(tmp_path, 4096, "%s"PSS"%s.%s", eff_dir.c_str(),FileBase.c_str(),cd1);
+                    trio_snprintf(tmp_path, 4096, "%s" PSS "%s.%s", eff_dir.c_str(),FileBase.c_str(),cd1);
 
 					//NEWTODO WTF stack overflow
          //           if(tmp_dfmd5 && stat(tmp_path,&tmpstat) == -1)
@@ -200,15 +200,15 @@ std::string MDFN_MakeFName(MakeFName_Type type, int id1, const char *cd1)
 		    {
 		     std::string overpath = MDFN_GetSettingS("path_cheat");
 		     if(overpath != "" && overpath != "0")
-                      trio_snprintf(tmp_path, 4096, "%s"PSS"%s.%scht",overpath.c_str(), MDFNGameInfo->shortname, (type == MDFNMKF_CHEAT_TMP) ? "tmp" : "");
+                      trio_snprintf(tmp_path, 4096, "%s" PSS "%s.%scht",overpath.c_str(), MDFNGameInfo->shortname, (type == MDFNMKF_CHEAT_TMP) ? "tmp" : "");
                      else
-                      trio_snprintf(tmp_path, 4096, "%s"PSS"cheats"PSS"%s.%scht", BaseDirectory.c_str(), MDFNGameInfo->shortname, (type == MDFNMKF_CHEAT_TMP) ? "tmp" : "");
+                      trio_snprintf(tmp_path, 4096, "%s" PSS "cheats" PSS "%s.%scht", BaseDirectory.c_str(), MDFNGameInfo->shortname, (type == MDFNMKF_CHEAT_TMP) ? "tmp" : "");
 		    }
                     break;
 
-  case MDFNMKF_AUX: trio_snprintf(tmp_path, 4096, "%s"PSS"%s", FileBaseDirectory.c_str(), (char *)cd1); break;
+  case MDFNMKF_AUX: trio_snprintf(tmp_path, 4096, "%s" PSS "%s", FileBaseDirectory.c_str(), (char *)cd1); break;
 
-  case MDFNMKF_IPS:  trio_snprintf(tmp_path, 4096, "%s"PSS"%s%s.ips",FileBaseDirectory.c_str(),FileBase.c_str(),FileExt.c_str());
+  case MDFNMKF_IPS:  trio_snprintf(tmp_path, 4096, "%s" PSS "%s%s.ips",FileBaseDirectory.c_str(),FileBase.c_str(),FileExt.c_str());
                      break;
 
   case MDFNMKF_FIRMWARE:
@@ -222,14 +222,14 @@ std::string MDFN_MakeFName(MakeFName_Type type, int id1, const char *cd1)
 		     else
 		     {
                       if(overpath != "" && overpath != "0")
-                       trio_snprintf(tmp_path, 4096, "%s"PSS"%s",overpath.c_str(), cd1);
+                       trio_snprintf(tmp_path, 4096, "%s" PSS "%s",overpath.c_str(), cd1);
                       else
 		      {
-                       trio_snprintf(tmp_path, 4096, "%s"PSS"firmware"PSS"%s", BaseDirectory.c_str(), cd1);
+                       trio_snprintf(tmp_path, 4096, "%s" PSS "firmware" PSS "%s", BaseDirectory.c_str(), cd1);
 
 		       // For backwards-compatibility with < 0.9.0
 		       if(stat(tmp_path,&tmpstat) == -1)
-                        trio_snprintf(tmp_path, 4096, "%s"PSS"%s", BaseDirectory.c_str(), cd1);
+                        trio_snprintf(tmp_path, 4096, "%s" PSS "%s", BaseDirectory.c_str(), cd1);
 		      }
 		     }
 		    }
@@ -239,9 +239,9 @@ std::string MDFN_MakeFName(MakeFName_Type type, int id1, const char *cd1)
 		      {
 		       std::string overpath = MDFN_GetSettingS("path_palette");
 		       if(overpath != "" && overpath != "0")
-                        trio_snprintf(tmp_path, 4096, "%s"PSS"%s.pal",overpath.c_str(),FileBase.c_str());
+                        trio_snprintf(tmp_path, 4096, "%s" PSS "%s.pal",overpath.c_str(),FileBase.c_str());
                        else
-                        trio_snprintf(tmp_path, 4096, "%s"PSS"gameinfo"PSS"%s.pal",BaseDirectory.c_str(),FileBase.c_str());
+                        trio_snprintf(tmp_path, 4096, "%s" PSS "gameinfo" PSS "%s.pal",BaseDirectory.c_str(),FileBase.c_str());
 		      }
                       break;
  }
