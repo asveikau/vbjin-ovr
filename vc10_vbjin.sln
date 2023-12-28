@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LibOVR", "oculus\LibOVR\Pro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlibstat", "zlib\zlibstat.vcxproj", "{8FD826F8-3739-44E6-8CC8-997122E53B8D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lua", "lua\lua.vcxproj", "{42AED1FC-DAD8-43A7-BD9E-633FB623E808}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -45,6 +47,14 @@ Global
 		{8FD826F8-3739-44E6-8CC8-997122E53B8D}.Release|Win32.Build.0 = Release|Win32
 		{8FD826F8-3739-44E6-8CC8-997122E53B8D}.Release|x64.ActiveCfg = Release|x64
 		{8FD826F8-3739-44E6-8CC8-997122E53B8D}.Release|x64.Build.0 = Release|x64
+		{42AED1FC-DAD8-43A7-BD9E-633FB623E808}.Debug|Win32.ActiveCfg = Debug|Win32
+		{42AED1FC-DAD8-43A7-BD9E-633FB623E808}.Debug|Win32.Build.0 = Debug|Win32
+		{42AED1FC-DAD8-43A7-BD9E-633FB623E808}.Debug|x64.ActiveCfg = Debug|x64
+		{42AED1FC-DAD8-43A7-BD9E-633FB623E808}.Debug|x64.Build.0 = Debug|x64
+		{42AED1FC-DAD8-43A7-BD9E-633FB623E808}.Release|Win32.ActiveCfg = Release|Win32
+		{42AED1FC-DAD8-43A7-BD9E-633FB623E808}.Release|Win32.Build.0 = Release|Win32
+		{42AED1FC-DAD8-43A7-BD9E-633FB623E808}.Release|x64.ActiveCfg = Release|x64
+		{42AED1FC-DAD8-43A7-BD9E-633FB623E808}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
