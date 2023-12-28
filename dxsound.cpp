@@ -80,6 +80,54 @@ DirectSound::~DirectSound()
 	}
 }
 
+struct EnumCallbackState
+{
+	LPGUID DesiredGuids[3];
+	GUID Storage[3];
+};
+
+static BOOL CALLBACK
+EnumerationCallback(
+   LPGUID Guid,
+   LPCTSTR Description,
+   LPCTSTR DriverName,
+   PVOID Context
+)
+{
+	EnumCallbackState *State = (EnumCallbackState*)Context;
+	static const char *Devices[] =
+	{
+		"(Rift Audio)",
+		"(Rift S)",
+		"(Oculus Virtual Audio Device)",
+		NULL
+	};
+
+	for (const char **p = Devices; *p; ++p)
+	{
+		int idx = p - Devices;
+		if (State->DesiredGuids[idx])
+			continue;
+		if (strstr(Description, *p))
+		{
+			State->DesiredGuids[idx] = State->Storage + idx;
+			*State->DesiredGuids[idx] = *Guid;
+		}
+	}
+
+	return TRUE;
+}
+
+static GUID
+FindOculusSoundDevice()
+{
+	EnumCallbackState state = {0};
+	DirectSoundEnumerate(EnumerationCallback, &state);
+	for (int i = 0; i < sizeof(state.DesiredGuids) / sizeof(*state.DesiredGuids); ++i)
+	if (state.DesiredGuids[i])
+		return *state.DesiredGuids[i];
+	return DSDEVID_DefaultPlayback;
+}
 
 bool DirectSound::init(long sampleRate)
 {
@@ -87,6 +135,7 @@ bool DirectSound::init(long sampleRate)
 	DWORD freq;
 	DSBUFFERDESC dsbdesc;
 	int i;
+	GUID desiredDevice;
 
 	hr = CoCreateInstance( CLSID_DirectSound8, NULL, CLSCTX_INPROC_SERVER, IID_IDirectSound8, (LPVOID *)&pDirectSound );
 	if( hr != S_OK ) {
@@ -95,7 +144,9 @@ bool DirectSound::init(long sampleRate)
 		return false;
 	}
 
-	pDirectSound->Initialize( &DSDEVID_DefaultPlayback );
+	desiredDevice = FindOculusSoundDevice();
+
+	pDirectSound->Initialize( &desiredDevice );
 	if( hr != DS_OK ) {
 		printf("IDS_CANNOT_CREATE_DIRECTSOUND"); 
 	//	systemMessage( IDS_CANNOT_CREATE_DIRECTSOUND, NULL, hr );
