@@ -27,6 +27,9 @@ HMENU recentromsmenu;				//Handle to the recent ROMs submenu
 extern char IniName[MAX_PATH];
 extern HWND g_hWnd;
 
+extern MDFNGI *
+MDFNI_LoadGame_Wrapper(const char *force_module, const char *name);
+
 void UpdateRecentRomsMenu()
 {
 	//This function will be called to populate the Recent Menu
@@ -230,14 +233,8 @@ void OpenRecentROM(int listNum)
 	soundDriver->pause();
 	strcpy(filename, RecentRoms[listNum].c_str());
 	
-	pcejin.romLoaded = true;
-	pcejin.started = true;
-	
-	if(!MDFNI_LoadGame(NULL,filename)) 
+	if(!MDFNI_LoadGame_Wrapper(NULL,filename))
 	{
-		pcejin.started = false;
-		pcejin.romLoaded = false;		
-
 		string str = "Could not open ";
 		str.append(filename);
 		str.append("\n\nRemove from list?");

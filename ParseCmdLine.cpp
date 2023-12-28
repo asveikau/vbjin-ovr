@@ -16,6 +16,9 @@ int stateToLoad = -1;	//-1 since 0 will be slot 0
 //3) add an entry in the switch statement in order to assign the variable
 //4) add code under the "execute commands" section to handle the given commandline
 
+extern MDFNGI *
+MDFNI_LoadGame_Wrapper(const char *force_module, const char *name);
+
 void ParseCmdLine(LPSTR lpCmdLine, HWND HWnd)
 {
 	string argumentList;					//Complete command line argument
@@ -99,14 +102,7 @@ void ParseCmdLine(LPSTR lpCmdLine, HWND HWnd)
 	//adelikat: for now assume ROM
 	if (FileToLoad[0])
 	{
-		//adelikat: This code is currently in LoadGame, Drag&Drop, Recent ROMs, and here, time for a function
-		pcejin.romLoaded = true;
-		pcejin.started = true;
-		if(!MDFNI_LoadGame(false, FileToLoad.c_str())) 
-		{
-			pcejin.started = false;
-			pcejin.romLoaded = false;
-		}
+		MDFNI_LoadGame_Wrapper(nullptr, FileToLoad.c_str());
 	}
 	//{
 	//	GensOpenFile(FileToLoad.c_str());
@@ -124,14 +120,7 @@ void ParseCmdLine(LPSTR lpCmdLine, HWND HWnd)
 	//ROM
 	if (RomToLoad[0]) 
 	{
-		//adelikat: This code is currently in LoadGame, Drag&Drop, Recent ROMs, and here, time for a function
-		pcejin.romLoaded = true;
-		pcejin.started = true;
-		if(!MDFNI_LoadGame(false, RomToLoad.c_str()))
-		{
-			pcejin.started = false;
-			pcejin.romLoaded = false;		
-		}
+		MDFNI_LoadGame_Wrapper(nullptr, RomToLoad.c_str());
 	}
 	
 	//Read+Write

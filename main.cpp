@@ -337,6 +337,25 @@ void vbjinInit() {
 	VTLineWidths[1] = (MDFN_Rect *)calloc(CurGame->fb_height, sizeof(MDFN_Rect));
 }
 
+MDFNGI *
+MDFNI_LoadGame_Wrapper(const char *force_module, const char *name)
+{
+	MDFNGI *r = nullptr;
+
+	if (pcejin.romLoaded) {
+		MDFNGameInfo->CloseGame();
+	}
+
+	pcejin.romLoaded = true;
+	pcejin.started = true;
+
+	if (!(r = MDFNI_LoadGame(force_module, name))) {
+		pcejin.started = false;
+		pcejin.romLoaded = false;
+	}
+
+	return r;
+}
 
 void MDFNI_Emulate(EmulateSpecStruct *espec) {
 	MDFNGameInfo->Emulate(espec);
@@ -405,14 +424,7 @@ void LoadGame(){
 	ofn.nMaxFile = MAX_PATH;
 	ofn.Flags = OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT;
 	if(GetOpenFileName(&ofn)) {
-		pcejin.romLoaded = true;
-		pcejin.started = true;
-	
-		if(!MDFNI_LoadGame(NULL,szChoice)) {
-			pcejin.started = false;
-			pcejin.romLoaded = false;
-			
-		}
+		MDFNI_LoadGame_Wrapper(NULL, szChoice);
 		if (AutoRWLoad)
 		{
 			//Open Ram Watch if its auto-load setting is checked
@@ -813,12 +825,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT Message, WPARAM wParam, LPARAM lParam)
 			//-------------------------------------------------------
 			//Else load it as a ROM
 			//-------------------------------------------------------
-			else if(MDFNI_LoadGame(NULL,filename))
+			else if(MDFNI_LoadGame_Wrapper(NULL,filename))
 			{
-				pcejin.romLoaded = true;
-				pcejin.started = true;
-				//TODO: adelikat: This code is copied directly from the LoadGame() function, it should be come a separate function and called in both places
-				////////////////////////////////
 				if (AutoRWLoad)
 				{
 					//Open Ram Watch if its auto-load setting is checked
@@ -826,7 +834,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT Message, WPARAM wParam, LPARAM lParam)
 					RamWatchHWnd = CreateDialog(winClass.hInstance, MAKEINTRESOURCE(IDD_RAMWATCH), g_hWnd, (DLGPROC) RamWatchProc);
 				}
 				UpdateRecentRoms(filename);
-				////////////////////////////////
 			}
 		}
 		return 0;
