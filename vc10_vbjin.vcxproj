@@ -88,7 +88,8 @@
       <AdditionalIncludeDirectories>blip;compress;submodules\zlib;trio;.;libcdio-0.81\include\;libcdio-0.81\lib\driver;src;src\pce;submodules\agg\include;utils;submodules\lua\src;mednafen;mednafen\include;mednafen\src;mednafen\src\compress;mednafen\src\trio;mednafen\src\vb;$(DXSDK_DIR)\Include;oculus\LibOVR\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;WANT_PCE_EMU;NEED_CDEMU;EXTERNAL_LIBCDIO_CONFIG_H;NO_CODECS;HAVE_DIRECTSOUND;USE_D3D=1;ZLIB_WINAPI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary Condition="'$(Configuration)' == 'Debug'">MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary Condition="'$(Configuration)' == 'Release'">MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
@@ -100,7 +101,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine Condition="'$(Platform)' == 'Win32'">MachineX86</TargetMachine>
-      <AdditionalOptions>/NODEFAULTLIB:LIBCMT /SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <Manifest>
       <AdditionalManifestFiles>
