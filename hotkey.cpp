@@ -32,7 +32,7 @@
 #include "resource.h"
 
 #define DIRECTINPUT_VERSION 0x0800
-#include "directx/dinput.h"
+#include <dinput.h>
 
 static void ReadHotkey(const char* name, WORD& output);
 
