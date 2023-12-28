@@ -42,8 +42,10 @@
     <IntDir>$(Configuration)_vc10\</IntDir>
     <LinkIncremental Condition="'$(Configuration)'=='Debug'">true</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)'=='Release'" />
-    <TargetName Condition="'$(Configuration)'=='Release'">vbjin</TargetName>
-    <TargetName Condition="'$(Configuration)'=='Debug'">vbjin_debug</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">VBjin-OVR</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">VBjin-OVR-amd64</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">VBjin-OVR_debug</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VBjin-OVR-amd64_debug</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
     <ClCompile>
