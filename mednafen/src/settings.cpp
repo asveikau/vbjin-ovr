@@ -289,7 +289,7 @@ bool MFDN_LoadSettings(const char *basedir)
  FILE *fp;
 
  fname = basedir;
-// fname += PSS;
+ fname += '\\';
  fname += "mednafen-09x.cfg";
 
  MDFN_printf("Loading settings from \"%s\"...", fname.c_str());
@@ -496,12 +496,6 @@ static const MDFNCS *FindSetting(const char *name)
   }
  }
 
- if(!ret)
- {
-	 assert(false);
-  printf("\n\nINCONCEIVABLE!  Setting not found: %s\n\n", name);
-  exit(1);
- }
  return(ret);
 }
 
@@ -509,6 +503,8 @@ static const char *GetSetting(const MDFNCS *setting)
 {
  const char *value;
 
+ if (!setting)
+  return nullptr;
  if(setting->netplay_override)
   value = setting->netplay_override;
  else
@@ -554,17 +550,21 @@ static MDFNSetting VBSettings[] =
 */
 uint64 MDFN_GetSettingUI(const char *name)
 {
+   const MDFNCS *setting = FindSetting(name);
 
-	//if(!strcmp("vb.3dmode",name))
-	//	return 4;//VB3DMODE_ANAGLYPH
-	if(!strcmp("vb.anaglyph.lcolor",name))
-		return 0xffba00;
-	if(!strcmp("vb.anaglyph.rcolor",name))
-		return 0x00baff;
-	if(!strcmp("vb.default_color",name))
-		return 0xF0F0F0;
+   if (!setting)
+   {
+	   //if(!strcmp("vb.3dmode",name))
+	   //	return 4;//VB3DMODE_ANAGLYPH
+	   if(!strcmp("vb.anaglyph.lcolor",name))
+		   return 0xffba00;
+	   if(!strcmp("vb.anaglyph.rcolor",name))
+		   return 0x00baff;
+	   if(!strcmp("vb.default_color",name))
+		   return 0xF0F0F0;
+      return 0;
+   }
 
- const MDFNCS *setting = FindSetting(name);
  const char *value = GetSetting(setting);
 
  if((setting->desc->type & MDFNST_BASE_MASK) == MDFNST_ENUM)
@@ -579,14 +579,18 @@ uint64 MDFN_GetSettingUI(const char *name)
 
 int64 MDFN_GetSettingI(const char *name)
 {
-	if(!strcmp(name,"vb.cpu_emulation"))
+ const MDFNCS *setting = FindSetting(name);
+
+ if (!setting)
+ {
+   if(!strcmp(name,"vb.cpu_emulation"))
 		return 1; //1=Accuracy
 	if(!strcmp(name,"vb.anaglyph.preset"))
 		return 1;
+   return 0;
+ }
 
- const MDFNCS *setting = FindSetting(name);
- const char *value = GetSetting(FindSetting(name));
-
+ const char *value = GetSetting(setting);
 
  if((setting->desc->type & MDFNST_BASE_MASK) == MDFNST_ENUM)
   return(GetEnum(setting, value));
@@ -608,28 +612,34 @@ double MDFN_GetSettingF(const char *name)
 
 bool MDFN_GetSettingB(const char *name)
 {
+   const MDFNCS *setting = FindSetting(name);
 
-	if(!strcmp("dfmd5",name))
-		return true;
-	if(!strcmp("filesys.sav_samedir",name))
-		return true;
-	if(!strcmp("filesys.state_samedir",name))
-		return true;
-	if(!strcmp("filesys.disablesavegz",name))
-		return true;
-	if(!strcmp("vb.disable_parallax",name))
-		return false;
-	if(!strcmp("vb.input.instant_read_hack"	,name))
-		return false;
-	if(!strcmp("cheats"	,name))
-		return false;
+   if (!setting)
+   {
+	   if(!strcmp("dfmd5",name))
+		   return true;
+	   if(!strcmp("filesys.sav_samedir",name))
+		   return true;
+	   if(!strcmp("filesys.state_samedir",name))
+		   return true;
+	   if(!strcmp("filesys.disablesavegz",name))
+		   return true;
+	   if(!strcmp("vb.disable_parallax",name))
+		   return false;
+	   if(!strcmp("vb.input.instant_read_hack"	,name))
+		   return false;
+	   if(!strcmp("cheats"	,name))
+		   return false;
+      return false;
+   }
 
-	return(strtoull(GetSetting(FindSetting(name)), NULL, 10));
+	return(strtoull(GetSetting(setting), NULL, 10));
 }
 
 std::string MDFN_GetSettingS(const char *name)
 {
- return(std::string(GetSetting(FindSetting(name))));
+ const char *p = GetSetting(FindSetting(name));
+ return(std::string(p ? p : ""));
 }
 
 const std::multimap <uint32, MDFNCS> *MDFNI_GetSettings(void)

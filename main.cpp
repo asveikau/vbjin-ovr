@@ -547,6 +547,17 @@ void LoadIniSettings(){
 		sprintf(str, "Recent Watch %d", i+1);
 		GetPrivateProfileString("Watches", str, "", &rw_recent_files[i][0], 1024, IniName);
 	}
+
+	char *slash = strrchr(IniName, '\\');
+	if (slash)
+	{
+		char szDir[MAX_PATH];
+		size_t n = slash - IniName;
+		memcpy(szDir, IniName, n);
+		szDir[n] = 0;
+
+		MFDN_LoadSettings(szDir);
+	}
 }
 
 void SaveIniSettings(){
@@ -570,7 +581,7 @@ void SaveIniSettings(){
 			WritePrivateProfileString("Watches", str, &rw_recent_files[i][0], IniName);	
 		}
 	SaveRecentRoms();
-
+	MDFN_SaveSettings();
 }
 
 std::string a = "a";
