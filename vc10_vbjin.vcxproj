@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -85,7 +85,7 @@
       <Command></Command>
     </PreBuildEvent>
     <ClCompile>
-      <AdditionalIncludeDirectories>blip;compress;submodules\zlib;trio;.;libcdio-0.81\include\;libcdio-0.81\lib\driver;src;src\pce;agg\include;directx;utils;submodules\lua\src;mednafen;mednafen\include;mednafen\src;mednafen\src\compress;mednafen\src\trio;mednafen\src\vb;$(DXSDK_DIR)\Include;oculus\LibOVR\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>blip;compress;submodules\zlib;trio;.;libcdio-0.81\include\;libcdio-0.81\lib\driver;src;src\pce;submodules\agg\include;directx;utils;submodules\lua\src;mednafen;mednafen\include;mednafen\src;mednafen\src\compress;mednafen\src\trio;mednafen\src\vb;$(DXSDK_DIR)\Include;oculus\LibOVR\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;WANT_PCE_EMU;NEED_CDEMU;EXTERNAL_LIBCDIO_CONFIG_H;NO_CODECS;HAVE_DIRECTSOUND;USE_D3D=1;ZLIB_WINAPI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -97,7 +97,7 @@
     <Link>
       <AdditionalDependencies>d3d10.lib;d3d11.lib;dxgi.lib;vfw32.lib;directx\dxerr8.lib;directx\dsound.lib;directx\dinput8.lib;directx\ddraw.lib;directx\dxguid.lib;Winmm.lib;shlwapi.lib;ws2_32.lib;dxguid.lib;d3dcompiler.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalLibraryDirectories>agg;$(DXSDK_DIR)\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(DXSDK_DIR)\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine Condition="'$(Platform)' == 'Win32'">MachineX86</TargetMachine>
@@ -110,12 +110,12 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Platform)' == 'Win32'">
     <Link>
-      <AdditionalDependencies>agg-2.5.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Platform)' == 'x64'">
     <Link>
-      <AdditionalDependencies>agg-2.5.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -272,6 +272,9 @@
     <ResourceCompile Include="pcejin.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="agg\agg.vcxproj">
+      <Project>{08c7fab4-d604-4bd5-929e-02cdb7722763}</Project>
+    </ProjectReference>
     <ProjectReference Include="lua\lua.vcxproj">
       <Project>{42aed1fc-dad8-43a7-bd9e-633fb623e808}</Project>
     </ProjectReference>

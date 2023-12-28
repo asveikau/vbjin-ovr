@@ -4,3 +4,6 @@
 [submodule "submodules/lua"]
 	path = submodules/lua
 	url = git@github.com:viruscamp/lua5.git
+[submodule "submodules/agg"]
+	path = submodules/agg
+	url = git@github.com:blackball/agg-2.5.git
