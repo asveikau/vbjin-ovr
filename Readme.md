@@ -2,7 +2,8 @@
 
 VBjin-OVR is a Virtual Boy Emulator for Windows with support for the Oculus Rift VR display device. It's licensed under the terms of the GNU GPL v2, as is its predecessor, [vbjin].
 
-### Latest Version
+### Version History
+3.1 (Updated libs, x64 build, saveram files, mednafen config file)
 3.0 (Oculus PC SDK 1.3.0, compatible with the CV1)
 
 ### Getting Started
@@ -23,6 +24,6 @@ In this mode, the screen is fixed in view and head tracking is ignored.
 ### Oculus Rift Mode: Immersive
 In this mode, the screen is placed in the world and head tracking is used to allow you to look around. This mode should be considered experimental and suffers from artifacts inherent to the Virtual Boy's implementation. For example, rolling your head side to side will break the illusion because the Virtual Boy only separates the left and right eyes horizontally.
 
-[latest release]: <https://github.com/braindx/vbjin-ovr/releases/download/3.0/VBjin-OVR.exe>
+[latest release]: <https://github.com/asveikau/vbjin-ovr/releases/tag/v3.1>
 [vbjin]: <https://code.google.com/archive/p/vbjin>
 [Oculus support page on the subject]: <https://support.oculus.com/878170922281071>
