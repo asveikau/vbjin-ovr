@@ -85,8 +85,8 @@
       <Command></Command>
     </PreBuildEvent>
     <ClCompile>
-      <AdditionalIncludeDirectories>blip;compress;zlib;trio;.;libcdio-0.81\include\;libcdio-0.81\lib\driver;src;src\pce;agg\include;directx;utils;lua;mednafen;mednafen\include;mednafen\src;mednafen\src\compress;mednafen\src\trio;mednafen\src\vb;$(DXSDK_DIR)\Include;oculus\LibOVR\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;WANT_PCE_EMU;NEED_CDEMU;EXTERNAL_LIBCDIO_CONFIG_H;NO_CODECS;HAVE_DIRECTSOUND;USE_D3D=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>blip;compress;submodules\zlib;trio;.;libcdio-0.81\include\;libcdio-0.81\lib\driver;src;src\pce;agg\include;directx;utils;lua;mednafen;mednafen\include;mednafen\src;mednafen\src\compress;mednafen\src\trio;mednafen\src\vb;$(DXSDK_DIR)\Include;oculus\LibOVR\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;WANT_PCE_EMU;NEED_CDEMU;EXTERNAL_LIBCDIO_CONFIG_H;NO_CODECS;HAVE_DIRECTSOUND;USE_D3D=1;ZLIB_WINAPI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>
@@ -97,7 +97,7 @@
     <Link>
       <AdditionalDependencies>d3d10.lib;d3d11.lib;dxgi.lib;vfw32.lib;directx\dxerr8.lib;directx\dsound.lib;directx\dinput8.lib;directx\ddraw.lib;directx\dxguid.lib;Winmm.lib;shlwapi.lib;ws2_32.lib;dxguid.lib;d3dcompiler.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalLibraryDirectories>zlib;agg;lua;$(DXSDK_DIR)\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>agg;lua;$(DXSDK_DIR)\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine Condition="'$(Platform)' == 'Win32'">MachineX86</TargetMachine>
@@ -110,12 +110,12 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Platform)' == 'Win32'">
     <Link>
-      <AdditionalDependencies>zlib-2008-x32.lib;agg-2.5.lib;lua-5.1.4-x86.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>agg-2.5.lib;lua-5.1.4-x86.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Platform)' == 'x64'">
     <Link>
-      <AdditionalDependencies>zlib-2008-x64.lib;agg-2.5.lib;lua51.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>agg-2.5.lib;lua51.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -274,6 +274,9 @@
   <ItemGroup>
     <ProjectReference Include="oculus\LibOVR\Projects\Windows\VS2015\LibOVR.vcxproj">
       <Project>{ea50e705-5113-49e5-b105-2512edc8ddc6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="zlib\zlibstat.vcxproj">
+      <Project>{8fd826f8-3739-44e6-8cc8-997122e53b8d}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

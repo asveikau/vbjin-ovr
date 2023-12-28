@@ -266,7 +266,7 @@ bool MDFNFILE::MakeMemWrap(void *tz, int type)
    goto doret;
   }
 
-  while((howmany = gzread(tz, f_data + cur_size, cur_alloced - cur_size)) > 0)
+  while((howmany = gzread((gzFile)tz, f_data + cur_size, cur_alloced - cur_size)) > 0)
   {
    cur_size += howmany;
    cur_alloced <<= 1;
@@ -313,12 +313,12 @@ bool MDFNFILE::MakeMemWrap(void *tz, int type)
  }
  else if(type == MDFN_FILETYPE_GZIP)
  {
-  gzclose(tz);
+  gzclose((gzFile)tz);
  }
  else if(type == MDFN_FILETYPE_ZIP)
  {
-  unzCloseCurrentFile(tz);
-  unzClose(tz);
+  unzCloseCurrentFile((unzFile)tz);
+  unzClose((unzFile)tz);
  }
 
  return(ret);
@@ -485,7 +485,7 @@ bool MDFNFILE::Open(const char *path, const FileExtensionSpecStruct *known_ext, 
 
    if(!MakeMemWrap(t, 1))
    {
-    gzclose(t);
+    gzclose((gzFile)t);
     return(0);
    }
 

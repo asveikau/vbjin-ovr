@@ -4,11 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vc10_vbjin", "vc10_vbjin.vcxproj", "{68D67AC4-A96C-46CD-B5E1-D454CEAE76C8}"
 	ProjectSection(ProjectDependencies) = postProject
 		{EA50E705-5113-49E5-B105-2512EDC8DDC6} = {EA50E705-5113-49E5-B105-2512EDC8DDC6}
+		{8FD826F8-3739-44E6-8CC8-997122E53B8D} = {8FD826F8-3739-44E6-8CC8-997122E53B8D}
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9AA21F1F-B270-4B8F-8639-86CC9636DFB9}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LibOVR", "oculus\LibOVR\Projects\Windows\VS2015\LibOVR.vcxproj", "{EA50E705-5113-49E5-B105-2512EDC8DDC6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlibstat", "zlib\zlibstat.vcxproj", "{8FD826F8-3739-44E6-8CC8-997122E53B8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +37,14 @@ Global
 		{EA50E705-5113-49E5-B105-2512EDC8DDC6}.Release|Win32.Build.0 = Release|Win32
 		{EA50E705-5113-49E5-B105-2512EDC8DDC6}.Release|x64.ActiveCfg = Release|x64
 		{EA50E705-5113-49E5-B105-2512EDC8DDC6}.Release|x64.Build.0 = Release|x64
+		{8FD826F8-3739-44E6-8CC8-997122E53B8D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8FD826F8-3739-44E6-8CC8-997122E53B8D}.Debug|Win32.Build.0 = Debug|Win32
+		{8FD826F8-3739-44E6-8CC8-997122E53B8D}.Debug|x64.ActiveCfg = Debug|x64
+		{8FD826F8-3739-44E6-8CC8-997122E53B8D}.Debug|x64.Build.0 = Debug|x64
+		{8FD826F8-3739-44E6-8CC8-997122E53B8D}.Release|Win32.ActiveCfg = Release|Win32
+		{8FD826F8-3739-44E6-8CC8-997122E53B8D}.Release|Win32.Build.0 = Release|Win32
+		{8FD826F8-3739-44E6-8CC8-997122E53B8D}.Release|x64.ActiveCfg = Release|x64
+		{8FD826F8-3739-44E6-8CC8-997122E53B8D}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
