@@ -885,6 +885,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT Message, WPARAM wParam, LPARAM lParam)
 	case WM_CLOSE:
 		{
 			SaveIniSettings();
+			if (pcejin.romLoaded)
+				MDFNGameInfo->CloseGame();
 			PostQuitMessage(0);
 		}
 
