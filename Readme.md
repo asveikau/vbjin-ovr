@@ -3,8 +3,9 @@
 VBjin-OVR is a Virtual Boy Emulator for Windows with support for the Oculus Rift VR display device. It's licensed under the terms of the GNU GPL v2, as is its predecessor, [vbjin].
 
 ### Version History
-3.1 (Updated libs, x64 build, saveram files, mednafen config file)
-3.0 (Oculus PC SDK 1.3.0, compatible with the CV1)
+
+* 3.1 (Updated libs, x64 build, saveram files, mednafen config file)
+* 3.0 (Oculus PC SDK 1.3.0, compatible with the CV1)
 
 ### Getting Started
 1. Download the [latest release]
