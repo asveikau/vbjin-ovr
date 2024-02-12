@@ -12,7 +12,7 @@ for /f "tokens=*" %%x in ('dir /s vcvarsall.bat /b') do set VCVARSALL=%%x
 popd
 if "%VCVARSALL%"=="" goto :fail-vcvarsall
 echo Running vcvarsall.bat ...
-"%VCVARSALL%"
+call "%VCVARSALL%"
 set VCVARSALL=
 
 rem Double check for MSBUILD
