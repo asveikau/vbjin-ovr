@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="DebugSingleProcess|Win32">
       <Configuration>DebugSingleProcess</Configuration>
@@ -35,20 +35,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Include\Extras\OVR_CAPI_Util.h" />
-    <ClInclude Include="..\..\..\Include\Extras\OVR_StereoProjection.h" />
-    <ClInclude Include="..\..\..\Include\OVR_CAPI.h" />
-    <ClInclude Include="..\..\..\Include\OVR_CAPI_Audio.h" />
-    <ClInclude Include="..\..\..\Include\OVR_CAPI_D3D.h" />
-    <ClInclude Include="..\..\..\Include\OVR_CAPI_GL.h" />
-    <ClInclude Include="..\..\..\Include\OVR_CAPI_Keys.h" />
-    <ClInclude Include="..\..\..\Include\OVR_ErrorCode.h" />
-    <ClInclude Include="..\..\..\Include\OVR_Version.h" />
+    <ClInclude Include="..\..\Include\Extras\OVR_CAPI_Util.h" />
+    <ClInclude Include="..\..\Include\Extras\OVR_StereoProjection.h" />
+    <ClInclude Include="..\..\Include\OVR_CAPI.h" />
+    <ClInclude Include="..\..\Include\OVR_CAPI_D3D.h" />
+    <ClInclude Include="..\..\Include\OVR_CAPI_GL.h" />
+    <ClInclude Include="..\..\Include\OVR_CAPI_Keys.h" />
+    <ClInclude Include="..\..\Include\OVR_ErrorCode.h" />
+    <ClInclude Include="..\..\Include\OVR_Version.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Src\OVR_CAPIShim.c" />
-    <ClCompile Include="..\..\..\Src\OVR_CAPI_Util.cpp" />
-    <ClCompile Include="..\..\..\Src\OVR_StereoProjection.cpp" />
+    <ClCompile Include="..\..\Src\OVR_CAPIShim.c" />
+    <ClCompile Include="..\..\Src\OVR_CAPI_Util.cpp" />
+    <ClCompile Include="..\..\Src\OVR_StereoProjection.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{EA50E705-5113-49E5-B105-2512EDC8DDC6}</ProjectGuid>
@@ -56,118 +55,111 @@
     <RootNamespace>LibOVR</RootNamespace>
     <ProjectName>LibOVR</ProjectName>
   </PropertyGroup>
+  <Import Project="..\..\..\..\props.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugSingleProcess|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugSingleProcess|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseSingleProcess|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseSingleProcess|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\ForceRebuild.props" />
+    <Import Project="ForceRebuild.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugSingleProcess|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\ForceRebuild.props" />
+    <Import Project="ForceRebuild.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\ForceRebuild.props" />
+    <Import Project="ForceRebuild.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugSingleProcess|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\ForceRebuild.props" />
+    <Import Project="ForceRebuild.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\ForceRebuild.props" />
+    <Import Project="ForceRebuild.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseSingleProcess|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\ForceRebuild.props" />
+    <Import Project="ForceRebuild.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\ForceRebuild.props" />
+    <Import Project="ForceRebuild.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseSingleProcess|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\ForceRebuild.props" />
+    <Import Project="ForceRebuild.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(ProjectDir)../../../Lib/Windows/$(Platform)/$(Configuration)/VS2013/</OutDir>
+    <OutDir>$(ProjectDir)../../Lib/Windows/$(Platform)/$(Configuration)/</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugSingleProcess|Win32'">
-    <OutDir>$(ProjectDir)../../../Lib/Windows/$(Platform)/Debug/VS2013/</OutDir>
+    <OutDir>$(ProjectDir)../../Lib/Windows/$(Platform)/Debug/</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(ProjectDir)../../../Lib/Windows/$(Platform)/$(Configuration)/VS2013/</OutDir>
+    <OutDir>$(ProjectDir)../../Lib/Windows/$(Platform)/$(Configuration)/</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugSingleProcess|x64'">
-    <OutDir>$(ProjectDir)../../../Lib/Windows/$(Platform)/Debug/VS2013/</OutDir>
+    <OutDir>$(ProjectDir)../../Lib/Windows/$(Platform)/Debug/</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IntDir>$(ProjectDir)../../../Obj/$(ProjectName)/Windows/$(Platform)/$(Configuration)/VS2013/</IntDir>
+    <IntDir>$(ProjectDir)../../Obj/$(ProjectName)/Windows/$(Platform)/$(Configuration)/</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugSingleProcess|Win32'">
-    <IntDir>$(ProjectDir)../../../Obj/$(ProjectName)/Windows/$(Platform)/$(Configuration)/VS2013/</IntDir>
+    <IntDir>$(ProjectDir)../../Obj/$(ProjectName)/Windows/$(Platform)/$(Configuration)/</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IntDir>$(ProjectDir)../../../Obj/$(ProjectName)/Windows/$(Platform)/$(Configuration)/VS2013/</IntDir>
+    <IntDir>$(ProjectDir)../../Obj/$(ProjectName)/Windows/$(Platform)/$(Configuration)/</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugSingleProcess|x64'">
-    <IntDir>$(ProjectDir)../../../Obj/$(ProjectName)/Windows/$(Platform)/$(Configuration)/VS2013/</IntDir>
+    <IntDir>$(ProjectDir)../../Obj/$(ProjectName)/Windows/$(Platform)/$(Configuration)/</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetName>LibOVR</TargetName>
@@ -182,28 +174,28 @@
     <TargetName>LibOVR</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(ProjectDir)../../../Lib/Windows/$(Platform)/$(Configuration)/VS2013/</OutDir>
+    <OutDir>$(ProjectDir)../../Lib/Windows/$(Platform)/$(Configuration)/</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseSingleProcess|Win32'">
-    <OutDir>$(ProjectDir)../../../Lib/Windows/$(Platform)/Release/VS2013/</OutDir>
+    <OutDir>$(ProjectDir)../../Lib/Windows/$(Platform)/Release/</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(ProjectDir)../../../Lib/Windows/$(Platform)/$(Configuration)/VS2013/</OutDir>
+    <OutDir>$(ProjectDir)../../Lib/Windows/$(Platform)/$(Configuration)/</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseSingleProcess|x64'">
-    <OutDir>$(ProjectDir)../../../Lib/Windows/$(Platform)/Release/VS2013/</OutDir>
+    <OutDir>$(ProjectDir)../../Lib/Windows/$(Platform)/Release/</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IntDir>$(ProjectDir)../../../Obj/$(ProjectName)/Windows/$(Platform)/$(Configuration)/VS2013/</IntDir>
+    <IntDir>$(ProjectDir)../../Obj/$(ProjectName)/Windows/$(Platform)/$(Configuration)/</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseSingleProcess|Win32'">
-    <IntDir>$(ProjectDir)../../../Obj/$(ProjectName)/Windows/$(Platform)/$(Configuration)/VS2013/</IntDir>
+    <IntDir>$(ProjectDir)../../Obj/$(ProjectName)/Windows/$(Platform)/$(Configuration)/</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IntDir>$(ProjectDir)../../../Obj/$(ProjectName)/Windows/$(Platform)/$(Configuration)/VS2013/</IntDir>
+    <IntDir>$(ProjectDir)../../Obj/$(ProjectName)/Windows/$(Platform)/$(Configuration)/</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseSingleProcess|x64'">
-    <IntDir>$(ProjectDir)../../../Obj/$(ProjectName)/Windows/$(Platform)/$(Configuration)/VS2013/</IntDir>
+    <IntDir>$(ProjectDir)../../Obj/$(ProjectName)/Windows/$(Platform)/$(Configuration)/</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <TargetName>LibOVR</TargetName>
@@ -229,7 +221,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <OmitDefaultLibName>true</OmitDefaultLibName>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);../../../Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);../../Include</AdditionalIncludeDirectories>
       <ShowIncludes>false</ShowIncludes>
       <AdditionalOptions>/FC %(AdditionalOptions)</AdditionalOptions>
       <ExceptionHandling>false</ExceptionHandling>
@@ -257,7 +249,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <OmitDefaultLibName>true</OmitDefaultLibName>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);../../../Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);../../Include</AdditionalIncludeDirectories>
       <ShowIncludes>false</ShowIncludes>
       <AdditionalOptions>/FC %(AdditionalOptions)</AdditionalOptions>
       <ExceptionHandling>false</ExceptionHandling>
@@ -284,7 +276,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <OmitDefaultLibName>true</OmitDefaultLibName>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);../../../Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);../../Include</AdditionalIncludeDirectories>
       <OmitFramePointers>false</OmitFramePointers>
       <ShowIncludes>false</ShowIncludes>
       <AdditionalOptions>/FC %(AdditionalOptions)</AdditionalOptions>
@@ -312,7 +304,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <OmitDefaultLibName>true</OmitDefaultLibName>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);../../../Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);../../Include</AdditionalIncludeDirectories>
       <OmitFramePointers>false</OmitFramePointers>
       <ShowIncludes>false</ShowIncludes>
       <AdditionalOptions>/FC %(AdditionalOptions)</AdditionalOptions>
@@ -341,7 +333,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <OmitDefaultLibName>true</OmitDefaultLibName>
       <DebugInformationFormat>OldStyle</DebugInformationFormat>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);../../../Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);../../Include</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <AdditionalOptions>/FC /d2Zi+ %(AdditionalOptions)</AdditionalOptions>
       <ExceptionHandling>false</ExceptionHandling>
@@ -371,7 +363,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <OmitDefaultLibName>true</OmitDefaultLibName>
       <DebugInformationFormat>OldStyle</DebugInformationFormat>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);../../../Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);../../Include</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <AdditionalOptions>/FC /d2Zi+ %(AdditionalOptions)</AdditionalOptions>
       <ExceptionHandling>false</ExceptionHandling>
@@ -401,7 +393,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <OmitDefaultLibName>true</OmitDefaultLibName>
       <DebugInformationFormat>OldStyle</DebugInformationFormat>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);../../../Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);../../Include</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <AdditionalOptions>/FC /d2Zi+ %(AdditionalOptions)</AdditionalOptions>
       <ExceptionHandling>false</ExceptionHandling>
@@ -431,7 +423,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <OmitDefaultLibName>true</OmitDefaultLibName>
       <DebugInformationFormat>OldStyle</DebugInformationFormat>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);../../../Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);../../Include</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <AdditionalOptions>/FC /d2Zi+ %(AdditionalOptions)</AdditionalOptions>
       <ExceptionHandling>false</ExceptionHandling>

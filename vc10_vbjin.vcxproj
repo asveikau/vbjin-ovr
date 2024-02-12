@@ -280,7 +280,7 @@
     <ProjectReference Include="lua\lua.vcxproj">
       <Project>{42aed1fc-dad8-43a7-bd9e-633fb623e808}</Project>
     </ProjectReference>
-    <ProjectReference Include="oculus\LibOVR\Projects\Windows\VS2015\LibOVR.vcxproj">
+    <ProjectReference Include="oculus\LibOVR\Projects\Windows\LibOVR.vcxproj">
       <Project>{ea50e705-5113-49e5-b105-2512edc8ddc6}</Project>
     </ProjectReference>
     <ProjectReference Include="zlib\zlibstat.vcxproj">
