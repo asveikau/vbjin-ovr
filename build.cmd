@@ -20,7 +20,7 @@ where msbuild >NUL 2>&1 || goto :fail-msbuild
 
 :have-msbuild
 
-msbuild vc10_vbjin.sln %*
+msbuild vbjin.sln %*
 exit /b %errorlevel%
 
 :fail-vcvarsall

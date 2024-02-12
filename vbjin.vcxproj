@@ -22,7 +22,7 @@
     <ProjectGuid>{68D67AC4-A96C-46CD-B5E1-D454CEAE76C8}</ProjectGuid>
     <RootNamespace>pcejin</RootNamespace>
     <Keyword>Win32Proj</Keyword>
-    <ProjectName>vc10_vbjin</ProjectName>
+    <ProjectName>vbjin</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Label="Configuration">
@@ -39,7 +39,7 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <OutDir>$(SolutionDir)\__bins\</OutDir>
-    <IntDir>$(Configuration)_vc10\</IntDir>
+    <IntDir>$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)'=='Debug'">true</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)'=='Release'" />
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">VBjin-OVR</TargetName>
